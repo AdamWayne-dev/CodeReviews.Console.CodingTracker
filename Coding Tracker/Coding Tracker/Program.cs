@@ -11,7 +11,7 @@ var configuration = new ConfigurationBuilder()
 
 var dbPath = configuration["Database:ConnectionString"];
 
-//var databaseInitialiser = new DatabaseInitialiser(dbPath);
+var databaseInitialiser = new DatabaseInitialiser(dbPath);
 var repo = new CodingSessionRepository(dbPath);
 
 var userInterface = new UserInterface(repo);
