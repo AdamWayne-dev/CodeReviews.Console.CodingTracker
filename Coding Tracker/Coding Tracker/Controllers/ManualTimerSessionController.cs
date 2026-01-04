@@ -16,7 +16,7 @@ namespace Coding_Tracker.Controllers
         public void StartSession()
         {
             var start = _ui.PromptForDateTime("Enter the [green]start[/] date and time");
-            var end = _ui.PromptForDateTime("Enter the [red]end[/] date and time");
+            var end = _ui.PromptForEndDateTime("Enter the [red]end[/] date and time", start);
 
             _repo.AddSession(CodingSession.Create(start, end));
         }

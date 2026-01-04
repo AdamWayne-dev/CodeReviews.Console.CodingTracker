@@ -35,7 +35,14 @@ namespace Coding_Tracker.Controllers
                 input => DateTimeValidator.ValidateDateResponse(input, DateFormat),
                 $"Invalid date format. Please use the format: {DateFormat.ToLower()}");
         }
-
+        public DateTime PromptForEndDateTime(string prompt, DateTime startTime)
+        {
+            return PromptUntilValid(
+                prompt,
+                DateFormat.ToLower(),
+                input => DateTimeValidator.ValidateEndDateResponse(startTime, input, DateFormat),
+                $"Invalid end time. It must be after the start time and use the format: {DateFormat.ToLower()}");
+        }
         private T PromptUntilValid<T>(string prompt, string formatHint, Func<string, T> parse, string errorMessage)
         {
             while (true)
